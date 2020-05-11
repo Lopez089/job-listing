@@ -1,0 +1,11 @@
+.tab-info-new {
+  background-color: var(--Dark-Cyan);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin: 0rem 1rem;
+}
+
+.tab-info-featured {
+  @extend .tab-info-new;
+  background-color: var(--Very-Dark-Grayish-Cyan);
+}

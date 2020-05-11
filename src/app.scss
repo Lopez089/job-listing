@@ -8,6 +8,7 @@
   --Very-Dark-Grayish-Cyan: hsl(180, 14%, 20%);
   font-size: 15px;
   font-family: "Spartan", sans-serif;
+  --border-radius: 5px;
 }
 
 * {
@@ -25,6 +26,24 @@ html {
   }
 }
 
+.h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--Dark-Cyan);
+}
+
+.h2__tab-info {
+  @extend .h2;
+  font-size: 0.7rem;
+  color: var(--Light-Grayish-Cyan-Filter-Table);
+}
+
+.h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--Very-Dark-Grayish-Cyan);
+}
+
 .wrap {
-  padding: 1.5rem;
+  padding: 3rem 1.5rem;
 }
