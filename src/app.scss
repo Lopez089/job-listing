@@ -42,6 +42,10 @@ html {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--Very-Dark-Grayish-Cyan);
+  cursor: pointer;
+}
+.h1:hover {
+  color: var(--Dark-Cyan);
 }
 
 .wrap {
