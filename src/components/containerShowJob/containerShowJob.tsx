@@ -1,16 +1,10 @@
 import React from "react";
 import "./containerShowJob.scss";
 
-import CardJob from "../../components/cardJob/cardJob";
-
-const ContainerShowJob = () => {
+const ContainerShowJob = (props: any) => {
   return (
     <section className="container-Show-job">
-      <div className="wrap">
-        <CardJob />
-        <CardJob />
-        <CardJob />
-      </div>
+      <div className="wrap">{props.children}</div>
     </section>
   );
 };

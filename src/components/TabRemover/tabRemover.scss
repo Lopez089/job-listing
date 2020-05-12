@@ -1,0 +1,12 @@
+.tab-remover {
+  background: var(--Dark-Cyan);
+  padding: 0 0.8rem;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-remover:hover {
+  background: var(--Very-Dark-Grayish-Cyan);
+}

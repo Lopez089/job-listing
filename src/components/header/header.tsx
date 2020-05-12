@@ -1,8 +1,12 @@
 import React from "react";
 import "./header.scss";
 
-const Header = () => {
-  return <header className="header"></header>;
+const Header = (props: any) => {
+  return (
+    <header className="header">
+      <div className="header_wrap">{props.children}</div>
+    </header>
+  );
 };
 
 export default Header;

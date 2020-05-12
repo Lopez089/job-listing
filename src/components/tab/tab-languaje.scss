@@ -1,9 +1,13 @@
 .tab-languaje {
   background-color: var(--Light-Grayish-Cyan-Filter-Table);
-  padding: 0.7rem;
+  display: flex;
+  justify-content: space-between;
   border-radius: var(--border-radius);
   margin: 0rem 1rem 1rem 0rem;
   cursor: pointer;
+  &--wraper-text {
+    padding: 0.7rem;
+  }
 }
 
 .tab-languaje:hover {

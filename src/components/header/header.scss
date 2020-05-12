@@ -1,5 +1,14 @@
+@import "../../app.scss";
+
 .header {
   height: 12rem;
   background: url(./bg-header-mobile.svg) var(--Dark-Cyan);
   background-size: cover;
+  &_wrap {
+    @include wrap;
+
+    &card {
+      background: red;
+    }
+  }
 }

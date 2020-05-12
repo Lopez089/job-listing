@@ -26,16 +26,25 @@ html {
   }
 }
 
-.h2 {
+@mixin h2 {
   font-size: 1rem;
   font-weight: 700;
   color: var(--Dark-Cyan);
+}
+
+.h2 {
+  @include h2;
 }
 
 .h2__tab-info {
   @extend .h2;
   font-size: 0.7rem;
   color: var(--Light-Grayish-Cyan-Filter-Table);
+}
+.cleartext {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--Dark-Cyan);
 }
 
 .h1 {
@@ -47,7 +56,9 @@ html {
 .h1:hover {
   color: var(--Dark-Cyan);
 }
-
-.wrap {
+@mixin wrap {
   padding: 3rem 1.5rem;
+}
+.wrap {
+  @include wrap;
 }

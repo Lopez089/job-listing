@@ -1,0 +1,23 @@
+.wrap-filter {
+  display: flex;
+  justify-content: space-between;
+  &_taps {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  &_wrap-clear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_text {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--Dark-Grayish-Cyan);
+      cursor: pointer;
+    }
+    &_text:hover {
+      color: var(--Dark-Cyan);
+    }
+  }
+}
