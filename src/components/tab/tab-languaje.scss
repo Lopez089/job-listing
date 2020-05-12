@@ -17,3 +17,9 @@
     color: var(--Light-Grayish-Cyan-Filter-Table);
   }
 }
+
+@media screen and (min-width: 769px) {
+  .tab-languaje {
+    margin: 0rem 1rem 0rem 0rem;
+  }
+}
