@@ -48,14 +48,10 @@ const CardContainerJob = (props: any) => {
 
   const arrayTab = tabs({
     role,
-
     level,
     languages,
     tools,
   });
-
-  console.log(arrayTab);
-  console.log(props);
 
   return (
     <div className="wrapper-card">
@@ -85,7 +81,6 @@ const CardContainerJob = (props: any) => {
               {arrayTab.map((tab) =>
                 tab ? <TabLanguajes filter={tab} /> : null
               )}
-              {/* <TabLanguajes /> <TabLanguajes /> <TabLanguajes /> */}
             </div>
           </div>
         </div>

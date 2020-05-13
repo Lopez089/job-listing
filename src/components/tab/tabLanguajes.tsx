@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useContext } from "react";
 import "./tab-languaje.scss";
 
 interface IpropsTabLanguajes {
@@ -8,11 +8,18 @@ interface IpropsTabLanguajes {
 
 const TabLanguajes = (props: IpropsTabLanguajes) => {
   const { filter, children } = props;
-  console.log(children);
+  //const Contexts = useContext(Context);
+  const inputEl = useRef();
+  // console.log(children);
   return (
-    <div className="tab-languaje">
+    <div
+      className="tab-languaje"
+      onClick={() => console.log(inputEl.current.innerText)}
+    >
       <div className="tab-languaje--wraper-text">
-        <h1 className="h2">{filter}</h1>
+        <h1 ref={inputEl} className="h2">
+          {filter}
+        </h1>
       </div>
       {children}
     </div>

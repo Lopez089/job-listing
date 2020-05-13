@@ -32,6 +32,8 @@ function App() {
     "JavaScript",
   ]);
 
+  const Context = React.createContext();
+
   useEffect(() => {
     fetch("http://localhost:3001/jobs")
       .then((res) => res.json())
@@ -40,24 +42,26 @@ function App() {
 
   return (
     <>
-      <Header>
-        <Card>
-          <Wrapper>
-            <ContainerFilter filters={filters} />
-          </Wrapper>
-        </Card>
-      </Header>
-      <ContainerShowJob>
-        {!jobs ? (
-          <p className="h2">No existen datos</p>
-        ) : (
-          jobs.map((job: Ijobs, i: number) => (
-            <Card key={i}>
-              <CardContainerJob {...job} />
-            </Card>
-          ))
-        )}
-      </ContainerShowJob>
+      <Context.Provider value={{ filters, setFilter }}>
+        <Header>
+          <Card>
+            <Wrapper>
+              <ContainerFilter filters={filters} />
+            </Wrapper>
+          </Card>
+        </Header>
+        <ContainerShowJob>
+          {!jobs ? (
+            <p className="h2">No existen datos</p>
+          ) : (
+            jobs.map((job: Ijobs, i: number) => (
+              <Card key={i}>
+                <CardContainerJob {...job} />
+              </Card>
+            ))
+          )}
+        </ContainerShowJob>
+      </Context.Provider>
     </>
   );
 }
