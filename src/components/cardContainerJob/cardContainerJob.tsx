@@ -28,7 +28,7 @@ const CardContainerJob = () => {
           </div>
           <div className="card-container_tab-languajes  ">
             <div className="row-card">
-              <TabLanguajes /> <TabLanguajes /> <TabLanguajes />
+              {/* <TabLanguajes /> <TabLanguajes /> <TabLanguajes /> */}
             </div>
           </div>
         </div>

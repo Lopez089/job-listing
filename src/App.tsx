@@ -9,13 +9,17 @@ import Wrapper from "./components/warpper/wrapper";
 import "./app.scss";
 
 function App() {
-  const [job, setJob] = useState();
-  const [filter, setFilter] = useState(["HTML", "CSS", "JavaScript"]);
-
+  const [jobs, setJobs] = useState<any>();
+  const [filters, setFilter] = useState<string[]>([
+    "HTML",
+    "CSS",
+    "JavaScript",
+  ]);
+  console.log(jobs);
   useEffect(() => {
     fetch("http://localhost:3001/jobs")
       .then((res) => res.json())
-      .then((data) => setJob(data));
+      .then((data) => setJobs(data));
   }, []);
 
   return (
@@ -23,20 +27,24 @@ function App() {
       <Header>
         <Card>
           <Wrapper>
-            <ContainerFilter />
+            <ContainerFilter filters={filters} />
           </Wrapper>
         </Card>
       </Header>
       <ContainerShowJob>
+        {jobs.map((job: any) => (
+          <Card>
+            <CardContainerJob />
+          </Card>
+        ))}
+
+        {/* 
         <Card>
           <CardContainerJob />
         </Card>
         <Card>
           <CardContainerJob />
-        </Card>
-        <Card>
-          <CardContainerJob />
-        </Card>
+        </Card> */}
       </ContainerShowJob>
     </>
   );

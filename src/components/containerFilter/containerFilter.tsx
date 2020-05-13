@@ -3,19 +3,22 @@ import TapLanguajes from "../tab/tabLanguajes";
 import TabRemover from "../TabRemover/tabRemover";
 import "./containerFilter.scss";
 
-const ContainerFilter = () => {
+interface Iprops {
+  filters: string[];
+}
+
+const ContainerFilter = (props: Iprops) => {
+  const { filters } = props;
   return (
     <div className="wrap-filter">
       <div className="wrap-filter_taps">
-        <TapLanguajes>
-          <TabRemover />
-        </TapLanguajes>
-        <TapLanguajes>
-          <TabRemover />
-        </TapLanguajes>
-        <TapLanguajes>
-          <TabRemover />
-        </TapLanguajes>
+        {filters.map((filter: string, i: number) => {
+          return (
+            <TapLanguajes key={i} filter={filter}>
+              <TabRemover />
+            </TapLanguajes>
+          );
+        })}
       </div>
       <div className="wrap-filter_wrap-clear">
         <p className="wrap-filter_wrap-clear_text">Clear</p>
