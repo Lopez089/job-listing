@@ -3,7 +3,7 @@ import "./tab-languaje.scss";
 
 interface IpropsTabLanguajes {
   filter: string;
-  children: JSX.Element;
+  children?: JSX.Element;
 }
 
 const TabLanguajes = (props: IpropsTabLanguajes) => {

@@ -2,9 +2,61 @@ import React from "react";
 import TabInfo from "../tab/tabinfo";
 import TabLanguajes from "../tab/tabLanguajes";
 import "./cardContainerjob.scss";
-import logo from "./shortly.svg";
 
-const CardContainerJob = () => {
+export interface Ijob {
+  company: string;
+  contract: string;
+  featured: boolean;
+  id: number;
+  languages: string[];
+  level: string;
+  location: string;
+  logo: string;
+  new: boolean;
+  position: string;
+  postedAt: string;
+  role: string;
+  tools: string[];
+}
+
+interface Itab {
+  languages: string[];
+  level: string;
+  role: string;
+  tools: string[];
+}
+
+const CardContainerJob = (props: any) => {
+  const {
+    logo,
+    company,
+    position,
+    postedAt,
+    contract,
+    location,
+    languages,
+    level,
+    role,
+    tools,
+  } = props;
+
+  const tabs = (tabs: Itab) => {
+    let arrayTab = [tabs.role, tabs.level, tabs.languages, tabs.tools];
+
+    return arrayTab.flat();
+  };
+
+  const arrayTab = tabs({
+    role,
+
+    level,
+    languages,
+    tools,
+  });
+
+  console.log(arrayTab);
+  console.log(props);
+
   return (
     <div className="wrapper-card">
       <div className="card-container">
@@ -14,20 +66,25 @@ const CardContainerJob = () => {
         <div className="card-container_body">
           <div className="card-container_body_info">
             <div className="row-card">
-              <h1 className="h2">Photosnap</h1>
+              <h1 className="h2">{company}</h1>
               <TabInfo />
             </div>
             <div className="row-card">
-              <h1 className="h1">Senior Frontend Developer</h1>
+              <h1 className="h1">{position}</h1>
             </div>
             <div className="row-card">
-              <p className="info">1d ago &#8226; Full Time &#8226; USA only</p>
+              <p className="info">
+                {postedAt} &#8226; {contract} &#8226; {location}
+              </p>
             </div>
 
             <hr />
           </div>
           <div className="card-container_tab-languajes  ">
             <div className="row-card">
+              {arrayTab.map((tab) =>
+                tab ? <TabLanguajes filter={tab} /> : null
+              )}
               {/* <TabLanguajes /> <TabLanguajes /> <TabLanguajes /> */}
             </div>
           </div>
