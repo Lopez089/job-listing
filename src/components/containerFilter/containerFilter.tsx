@@ -13,7 +13,7 @@ const ContainerFilter = (props: Iprops) => {
     <div className="wrap-filter">
       <div className="wrap-filter_taps">
         {filters.map((filter: string, i: number) => {
-          return (
+          return filter === "" ? null : (
             <TapLanguajes key={i} filter={filter}>
               <TabRemover />
             </TapLanguajes>

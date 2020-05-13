@@ -7,6 +7,7 @@ import ContainerFilter from "./components/containerFilter/containerFilter";
 import Wrapper from "./components/warpper/wrapper";
 import "./app.scss";
 
+export const Context = React.createContext({});
 export interface Ijobs {
   [index: number]: {
     company: string;
@@ -32,8 +33,6 @@ function App() {
     "JavaScript",
   ]);
 
-  const Context = React.createContext();
-
   useEffect(() => {
     fetch("http://localhost:3001/jobs")
       .then((res) => res.json())
@@ -42,7 +41,7 @@ function App() {
 
   return (
     <>
-      <Context.Provider value={{ filters, setFilter }}>
+      <Context.Provider value={{ setFilter, filters }}>
         <Header>
           <Card>
             <Wrapper>
