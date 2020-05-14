@@ -7,12 +7,15 @@ import { CRef } from "../tab/tabLanguajes";
 const TabRemover = () => {
   const context = useContext(Context);
   const cRef = useContext(CRef);
-  const refRemove = useRef(null);
   return (
     <div
       className="tab-remover"
       onClick={() => {
-        console.log(cRef.current.innerText);
+        //console.log(cRef.current.innerText);
+        const filter = context.filters;
+        const indexRefState = filter.indexOf(cRef.current.innerText);
+        filter.splice(indexRefState, 1);
+        context.setFilter(filter);
       }}
     >
       <img src={iconTabRemove} alt="icon-remove" />
