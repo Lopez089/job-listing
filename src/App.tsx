@@ -62,11 +62,13 @@ function App() {
     <>
       <Context.Provider value={{ setFilter, filters }}>
         <Header>
-          <Card>
-            <Wrapper>
-              <ContainerFilter filters={filters} />
-            </Wrapper>
-          </Card>
+          {filters.length > 0 ? (
+            <Card>
+              <Wrapper>
+                <ContainerFilter filters={filters} />
+              </Wrapper>
+            </Card>
+          ) : null}
         </Header>
         <ContainerShowJob>
           {!jobs ? (
