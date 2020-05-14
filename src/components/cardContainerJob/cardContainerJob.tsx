@@ -38,8 +38,9 @@ const CardContainerJob = (props: any) => {
     level,
     role,
     tools,
+    featured,
   } = props;
-
+  console.log(props);
   const tabs = (tabs: Itab) => {
     let arrayTab = [tabs.role, tabs.level, tabs.languages, tabs.tools];
 
@@ -63,7 +64,8 @@ const CardContainerJob = (props: any) => {
           <div className="card-container_body_info">
             <div className="row-card">
               <h1 className="h2">{company}</h1>
-              <TabInfo />
+              {props.new ? <TabInfo text="NEW" /> : null}
+              {featured ? <TabInfo text="FEATURED" /> : null}
             </div>
             <div className="row-card">
               <h1 className="h1">{position}</h1>
