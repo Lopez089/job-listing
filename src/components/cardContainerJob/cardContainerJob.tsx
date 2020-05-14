@@ -55,7 +55,11 @@ const CardContainerJob = (props: any) => {
   });
 
   return (
-    <div className="wrapper-card">
+    <div
+      className={`wrapper-card ${
+        props.new || featured ? "featured" : undefined
+      }`}
+    >
       <div className="card-container">
         <div className="card-container_logo">
           <img src={logo} alt="logo" />
