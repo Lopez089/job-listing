@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext } from "react";
 import iconTabRemove from "./icon-remove.svg";
 import "./tabRemover.scss";
 import { Context } from "../../App";
@@ -15,7 +15,7 @@ const TabRemover = () => {
         const filter = context.filters;
         const indexRefState = filter.indexOf(cRef.current.innerText);
         filter.splice(indexRefState, 1);
-        context.setFilter(filter);
+        context.setFilter([...filter]);
       }}
     >
       <img src={iconTabRemove} alt="icon-remove" />

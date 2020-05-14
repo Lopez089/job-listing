@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import TapLanguajes from "../tab/tabLanguajes";
 import TabRemover from "../TabRemover/tabRemover";
 import "./containerFilter.scss";
-
+import { Context } from "../../App";
 interface Iprops {
   filters: string[];
 }
 
 const ContainerFilter = (props: Iprops) => {
   const { filters } = props;
+  const context = useContext(Context);
   return (
     <div className="wrap-filter">
       <div className="wrap-filter_taps">
@@ -21,7 +22,12 @@ const ContainerFilter = (props: Iprops) => {
         })}
       </div>
       <div className="wrap-filter_wrap-clear">
-        <p className="wrap-filter_wrap-clear_text">Clear</p>
+        <p
+          className="wrap-filter_wrap-clear_text"
+          onClick={() => context.setFilter([])}
+        >
+          Clear
+        </p>
       </div>
     </div>
   );
