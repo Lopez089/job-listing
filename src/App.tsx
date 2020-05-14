@@ -28,7 +28,7 @@ export interface Ijobs {
 
 function App() {
   const [jobs, setJobs] = useState<Ijobs>();
-  const [filters, setFilter] = useState<string[]>([]);
+  const [filters, setFilter] = useState<string[]>(["CSS"]);
 
   useEffect(() => {
     fetch("http://localhost:3001/jobs")
@@ -39,22 +39,20 @@ function App() {
 
           return arrayTab.flat();
         };
-
+        const jobsfilter: any[] = [];
         jobs.forEach((job: Ijob) => {
-          let jobsfilter = [];
           let jobfilter: Ijob;
           const tabsArray = tabs(job);
           //console.log(tabs(tabsArray: string[]));
           filters.forEach((filter: string) => {
             tabsArray.forEach((tab: string) => {
-              return tab === filter ? (jobfilter = job) : undefined;
+              return tab === filter ? jobsfilter.push(job) : undefined;
             });
           });
-          jobsfilter.push();
-
-          setJobs(jobs);
-          console.log(jobsfilter);
+          //console.log(jobsfilter);
         });
+
+        filters.length === 0 ? setJobs(jobs) : setJobs(jobsfilter);
       });
   }, [filters]);
 
