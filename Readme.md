@@ -47,4 +47,6 @@ Estaría encantado de que colaboraras en este proyecto, y así mejorarlo.
 
 ## Autores ✒️
 
+- **frontendmentor** - challenges -[frontendmentor](https://www.frontendmentor.io/)
+
 - **Juan López** - Trabajo inicial - [Lopez089](https://github.com/Lopez089?tab=repositories)
