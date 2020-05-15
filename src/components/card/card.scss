@@ -2,11 +2,17 @@
   background-color: #fff;
   border-radius: var(--border-radius);
   box-shadow: 1px 7px 30px -13px var(--Dark-Cyan);
-  margin-bottom: 3.5rem;
+  margin-bottom: 5.5rem;
   top: 100px;
   position: relative;
 }
 
 .card {
   @include card;
+}
+
+@media screen and (min-width: 769px) {
+  .card {
+    margin-bottom: 3.5em;
+  }
 }

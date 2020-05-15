@@ -28,7 +28,7 @@ export interface Ijobs {
 
 function App() {
   const [jobs, setJobs] = useState<Ijobs>();
-  const [filters, setFilter] = useState<string[]>(["CSS"]);
+  const [filters, setFilter] = useState<string[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3001/jobs")
