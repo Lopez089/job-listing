@@ -1,4 +1,6 @@
 .card-container {
+  top: -16px;
+  position: relative;
   &_logo {
     position: relative;
     top: -45px;
@@ -16,6 +18,8 @@
 @media screen and (min-width: 769px) {
   .card-container {
     display: flex;
+    top: 0px;
+    position: relative;
     &_logo {
       margin-right: 1.5rem;
       display: flex;
@@ -44,7 +48,7 @@
   .row-card {
     margin: 0rem 0rem 0rem 0rem;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap !important;
     align-items: center;
   }
 
