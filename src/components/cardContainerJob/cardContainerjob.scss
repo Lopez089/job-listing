@@ -6,6 +6,11 @@
   &_info {
     padding: 1rem 3rem 1rem 3rem;
   }
+  &_tab-languajes {
+    margin: 1em 0 0 0;
+    display: flex;
+    justify-self: end;
+  }
 }
 
 @media screen and (min-width: 769px) {
