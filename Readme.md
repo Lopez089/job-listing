@@ -2,6 +2,8 @@
 
 Job listing es una paguina web de listados de trabajos. El usuario puede filtrar trabajos según sus categorías.
 
+![Demo](./other/static-job-listings-master/design/desktop-preview.jpg)
+
 ## Comenzando
 
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
