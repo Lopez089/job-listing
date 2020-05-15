@@ -40,7 +40,6 @@ const CardContainerJob = (props: any) => {
     tools,
     featured,
   } = props;
-  console.log(props);
   const tabs = (tabs: Itab) => {
     let arrayTab = [tabs.role, tabs.level, tabs.languages, tabs.tools];
 
@@ -86,8 +85,8 @@ const CardContainerJob = (props: any) => {
           </div>
           <div className="card-container_tab-languajes  ">
             <div className="row-card">
-              {arrayTab.map((tab) =>
-                tab ? <TabLanguajes filter={tab} /> : null
+              {arrayTab.map((tab, i: number) =>
+                tab ? <TabLanguajes filter={tab} key={i} /> : null
               )}
             </div>
           </div>

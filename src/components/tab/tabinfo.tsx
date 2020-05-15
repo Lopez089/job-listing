@@ -3,7 +3,6 @@ import "./tab-info.scss";
 
 const TabInfo = (props: { text: string }) => {
   const { text } = props;
-  console.log(props);
   return (
     <>
       {text === "NEW" ? (

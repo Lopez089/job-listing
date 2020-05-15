@@ -39,20 +39,22 @@ function App() {
 
           return arrayTab.flat();
         };
-        const jobsfilter: any[] = [];
+        let jobsfilter: any[] = [];
+
         jobs.forEach((job: Ijob) => {
-          let jobfilter: Ijob;
           const tabsArray = tabs(job);
           //console.log(tabs(tabsArray: string[]));
           filters.forEach((filter: string) => {
-            tabsArray.forEach((tab: string) => {
-              return tab === filter ? jobsfilter.push(job) : undefined;
-            });
+            tabsArray.filter((tab: string) =>
+              tab === filter ? jobsfilter.push(job) : undefined
+            );
+            return;
           });
           //console.log(jobsfilter);
         });
 
         filters.length === 0 ? setJobs(jobs) : setJobs(jobsfilter);
+        jobsfilter = [];
       });
   }, [filters]);
 
@@ -72,8 +74,8 @@ function App() {
           {!jobs ? (
             <p className="h2">No existen datos</p>
           ) : (
-            jobs.map((job: Ijobs, i: number) => (
-              <Card key={i}>
+            jobs.map((job: Ijob) => (
+              <Card key={job.id}>
                 <CardContainerJob {...job} />
               </Card>
             ))
