@@ -4,17 +4,16 @@
   justify-content: space-between;
   border-radius: var(--border-radius);
   margin: 0rem 1rem 1rem 0rem;
-  cursor: pointer;
+
   &--wraper-text {
     padding: 0.7rem;
   }
-}
-
-.tab-languaje:hover {
-  background-color: var(--Dark-Cyan);
-  .h2 {
-    @extend .h2;
-    color: var(--Light-Grayish-Cyan-Filter-Table);
+  &--wraper-text:hover {
+    background-color: var(--Dark-Cyan);
+    .h2 {
+      @extend .h2;
+      color: var(--Light-Grayish-Cyan-Filter-Table);
+    }
   }
 }
 
@@ -22,4 +21,13 @@
   .tab-languaje {
     margin: 0rem 1rem 0rem 0rem;
   }
+}
+.no-hover {
+  pointer-events: none;
+}
+.no-cursor {
+  cursor: default;
+}
+.pointer {
+  cursor: pointer;
 }

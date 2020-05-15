@@ -17,8 +17,8 @@ const TabLanguajes = (props: IpropsTabLanguajes) => {
   return (
     <>
       {children ? (
-        <div className="tab-languaje">
-          <div className="tab-languaje--wraper-text">
+        <div className="tab-languaje  ">
+          <div className="tab-languaje--wraper-text no-cursor no-hover ">
             <h1 ref={inputEl} className="h2">
               {filter}
             </h1>
@@ -27,7 +27,7 @@ const TabLanguajes = (props: IpropsTabLanguajes) => {
         </div>
       ) : (
         <div
-          className="tab-languaje"
+          className="tab-languaje pointer"
           onClick={() =>
             Contexts.setFilter([
               ...Contexts.filters,
@@ -42,6 +42,7 @@ const TabLanguajes = (props: IpropsTabLanguajes) => {
               {filter}
             </h1>
           </div>
+
           <CRef.Provider value={inputEl}>{children}</CRef.Provider>
         </div>
       )}
