@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import iconTabRemove from "./icon-remove.svg";
+
 import "./tabRemover.scss";
 import { Context } from "../../App";
 import { CRef } from "../tab/tabLanguajes";
+//import iconTabRemove from "./icon-remove.svg";
 
 const TabRemover = () => {
   const context = useContext(Context);
@@ -18,7 +19,7 @@ const TabRemover = () => {
         context.setFilter([...filter]);
       }}
     >
-      <img src={iconTabRemove} alt="icon-remove" />
+      {/* <img src={iconTabRemove} alt="icon-remove" /> */}
     </div>
   );
 };

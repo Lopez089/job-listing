@@ -6,57 +6,19 @@ import CardContainerJob from "./components/cardContainerJob/cardContainerJob";
 import ContainerFilter from "./components/containerFilter/containerFilter";
 import Wrapper from "./components/warpper/wrapper";
 import "./app.scss";
-import { Ijob } from "./components/cardContainerJob/cardContainerJob";
+import { Ijob } from "./typescript/interface/Ijob";
+import { Ijobs } from "./typescript/interface/Ijobs";
+import Fetch from "./service/fech/fetch";
 
 export const Context = createContext({});
-export interface Ijobs {
-  [index: number]: {
-    company: string;
-    contract: string;
-    featured: boolean;
-    id: number;
-    languages: string[];
-    level: string;
-    location: string;
-    logo: string;
-    new: boolean;
-    position: string;
-    postedAt: string;
-    role: string;
-  };
-}
 
 function App() {
   const [jobs, setJobs] = useState<Ijobs>();
   const [filters, setFilter] = useState<string[]>([]);
-
+  const fetch = new Fetch(filters);
   useEffect(() => {
-    fetch("http://localhost:3001/jobs")
-      .then((res) => res.json())
-      .then((jobs) => {
-        const tabs = (jobs: Ijob) => {
-          let arrayTab = [jobs.role, jobs.level, jobs.languages, jobs.tools];
-
-          return arrayTab.flat();
-        };
-        let jobsfilter: any[] = [];
-
-        jobs.forEach((job: Ijob) => {
-          const tabsArray = tabs(job);
-          //console.log(tabs(tabsArray: string[]));
-          filters.forEach((filter: string) => {
-            tabsArray.filter((tab: string) =>
-              tab === filter ? jobsfilter.push(job) : undefined
-            );
-            return;
-          });
-          //console.log(jobsfilter);
-        });
-
-        filters.length === 0 ? setJobs(jobs) : setJobs(jobsfilter);
-        jobsfilter = [];
-      });
-  }, [filters]);
+    fetch.handleFetch();
+  }, [fetch, filters]);
 
   return (
     <>

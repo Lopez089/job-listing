@@ -2,29 +2,7 @@ import React from "react";
 import TabInfo from "../tab/tabinfo";
 import TabLanguajes from "../tab/tabLanguajes";
 import "./cardContainerjob.scss";
-
-export interface Ijob {
-  company: string;
-  contract: string;
-  featured: boolean;
-  id: number;
-  languages: string[];
-  level: string;
-  location: string;
-  logo: string;
-  new: boolean;
-  position: string;
-  postedAt: string;
-  role: string;
-  tools: string[];
-}
-
-interface Itab {
-  languages: string[];
-  level: string;
-  role: string;
-  tools: string[];
-}
+import { Itab } from "../../typescript/interface/Itab";
 
 const CardContainerJob = (props: any) => {
   const {
