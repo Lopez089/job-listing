@@ -15,11 +15,10 @@ export const Context = createContext({});
 function App() {
   const [jobs, setJobs] = useState<Ijobs>();
   const [filters, setFilter] = useState<string[]>([]);
-  const fetch = new Fetch(filters);
+  const fetch = new Fetch({ filter: filters, setJobs });
   useEffect(() => {
     fetch.handleFetch();
   }, [fetch, filters]);
-
   return (
     <>
       <Context.Provider value={{ setFilter, filters }}>

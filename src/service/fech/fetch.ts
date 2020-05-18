@@ -5,14 +5,16 @@ const datajob = new Datajob();
 
 class Fetch {
   filter: string[];
-  constructor(filter: string[]) {
+  setJobs: () => void;
+  constructor({ filter, setJobs }: { filter: string[]; setJobs: () => void }) {
     this.filter = filter;
+    this.setJobs = setJobs;
   }
   handleFetch() {
     fetch("http://localhost:3001/jobs")
       .then((res) => res.json())
       .then((jobs: Ijobs) => {
-        datajob.updateState(jobs, this.filter);
+        datajob.updateState(jobs, this.filter, this.setJobs);
       })
       .catch((error) => console.error(error));
   }

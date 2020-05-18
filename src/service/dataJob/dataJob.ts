@@ -5,7 +5,7 @@ import Tabjob from "../tab/TabJob";
 const tabjob = new Tabjob();
 
 class DataJob {
-  updateState(jobs: Ijobs, filters: string[]) {
+  updateState(jobs: Ijobs, filters: string[], setJobs: (jobs: Ijobs) => void) {
     let jobsfilter: any[] = []; //me guarda los trabajos filtrados
 
     jobs.forEach((job: Ijob) => {
@@ -16,12 +16,11 @@ class DataJob {
         tabsjob.filter((tab: string) =>
           tab === filter ? jobsfilter.push(job) : undefined
         );
-        return;
       });
-      console.log(jobsfilter);
+      //console.log(jobsfilter);
     });
-
-    //filters.length === 0 ? setJobs(jobs) : setJobs(jobsfilter);
+    setJobs(jobs);
+    //filters.length === 0 ? setJobs(jobs) : this.setJobs(jobsfilter);
     jobsfilter = [];
   }
 }
