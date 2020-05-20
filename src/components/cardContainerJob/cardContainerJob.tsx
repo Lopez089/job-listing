@@ -3,8 +3,9 @@ import TabInfo from "../tab/tabinfo";
 import TabLanguajes from "../tab/tabLanguajes";
 import "./cardContainerjob.scss";
 import { Itab } from "../../typescript/interface/Itab";
-
-const CardContainerJob = (props: any) => {
+import Tabjob from "../../service/tab/TabJob";
+import { Ijob } from "../../typescript/interface/Ijob";
+const CardContainerJob = (props: Ijob) => {
   const {
     logo,
     company,
@@ -18,18 +19,13 @@ const CardContainerJob = (props: any) => {
     tools,
     featured,
   } = props;
-  const tabs = (tabs: Itab) => {
-    let arrayTab = [tabs.role, tabs.level, tabs.languages, tabs.tools];
+  //   const tabs = (tabs: Itab) => {
+  //     let arrayTab = [tabs.role, tabs.level, tabs.languages, tabs.tools];
 
-    return arrayTab.flat();
-  };
-
-  const arrayTab = tabs({
-    role,
-    level,
-    languages,
-    tools,
-  });
+  //     return arrayTab.flat();
+  //   };
+  const tabs = new Tabjob();
+  const arrayTab = tabs.ReturnTabJob(props);
 
   return (
     <div
@@ -63,9 +59,9 @@ const CardContainerJob = (props: any) => {
           </div>
           <div className="card-container_tab-languajes  ">
             <div className="row-card">
-              {arrayTab.map((tab, i: number) =>
-                tab ? <TabLanguajes filter={tab} key={i} /> : null
-              )}
+              {arrayTab.map((tab, i: number) => (
+                <TabLanguajes filter={tab} key={i} />
+              ))}
             </div>
           </div>
         </div>
