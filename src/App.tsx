@@ -15,10 +15,12 @@ export const Context = createContext({});
 function App() {
   const [jobs, setJobs] = useState<Ijobs>();
   const [filters, setFilter] = useState<string[]>([]);
-  const fetch = new Fetch({ filter: filters, setJobs });
+  const fetchs = new Fetch({ filter: filters, setJobs });
+
   useEffect(() => {
-    fetch.handleFetch();
-  }, [fetch, filters]);
+    fetchs.handleFetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters]);
   return (
     <>
       <Context.Provider value={{ setFilter, filters }}>
