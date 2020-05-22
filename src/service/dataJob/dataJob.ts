@@ -6,24 +6,19 @@ const tabjob = new Tabjob();
 
 class DataJob {
   updateState(jobs: Ijobs, filters: string[], setJobs: (jobs: Ijobs) => void) {
+    let jobsfilter: Ijobs | any;
+
     filters.length === 0
       ? setJobs(jobs)
-      : jobs.forEach((job: Ijob) => {
-          //recorrer todos los trabajos
-          const tabsJob = tabjob.ReturnTabJob(job); // retorna todos lo tab de un trabajo
-          //let hasTab: Boolean;
-          //recorer el filtro
-          //   tabsJob.map((tabJob) =>
-          //     // hasTab = filters.includes(tabJob)
-          //     console.log(tabJob)
-          //   );
+      : (jobsfilter = jobs.filter((job: Ijob) => {
+          const tabsJob: string[] = tabjob.ReturnTabJob(job);
+          let hasTab = filters.some((filter) => tabsJob.includes(filter));
 
-          // setJobs(jobsfilter);
-          //jobsfilter = [];
-          //console.log(hasTab);
-        });
+          return hasTab;
+        }));
 
-    //setJobs(jobs);
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    jobsfilter.length === 0 ? undefined : setJobs(jobsfilter);
   }
 }
 
